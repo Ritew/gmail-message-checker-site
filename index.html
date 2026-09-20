@@ -2,47 +2,19 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<script>try{var t=localStorage.getItem('gmc-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gmail Message Checker</title>
-<style>
-  :root{
-    --bg:#0f1115; --card:#171a21; --text:#e8e9ec; --muted:#9aa1ab;
-    --accent:#ea4335; --border:#262a33;
-  }
-  @media (prefers-color-scheme: light){
-    :root{ --bg:#f7f7f8; --card:#ffffff; --text:#1c1e21; --muted:#5a616b; --border:#e4e6ea; }
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    line-height:1.6;
-  }
-  .wrap{max-width:680px; margin:0 auto; padding:56px 24px 80px}
-  .logo{width:56px;height:56px;border-radius:14px;background:var(--accent);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:700;margin-bottom:20px}
-  h1{font-size:28px;margin:0 0 8px}
-  p.lead{color:var(--muted);font-size:17px;margin-top:0}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin:28px 0}
-  .card h2{font-size:16px;margin:0 0 10px}
-  ul{margin:8px 0;padding-left:20px;color:var(--muted)}
-  .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-  a.btn{
-    display:inline-block;padding:11px 18px;border-radius:10px;text-decoration:none;
-    border:1px solid var(--border);color:var(--text);font-size:14px;font-weight:600;
-  }
-  a.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-  footer{margin-top:48px;color:var(--muted);font-size:13px}
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="hero">
   <div class="wrap">
-    <div class="logo">G</div>
+    <div class="eyebrow">Extensão para Chrome</div>
     <h1>Gmail Message Checker</h1>
-    <p class="lead">Extensão para o Google Chrome que mostra, direto na barra de ferramentas do navegador, a contagem de mensagens não lidas da sua conta do Gmail.</p>
+    <p class="lead">Mostra, direto na barra de ferramentas do navegador, a contagem de mensagens não lidas da sua conta do Gmail.</p>
 
     <div class="card">
-      <h2>O que a extensão faz</h2>
+      <h2>O que a extensão faz:</h2>
       <ul>
         <li>Consulta periodicamente a sua conta do Gmail para contar mensagens não lidas.</li>
         <li>Exibe esse número como um selo (badge) no ícone da extensão.</li>
@@ -58,8 +30,10 @@
     </div>
 
     <footer>
-      Dúvidas ou suporte: <a href="mailto:jandersonvs79@gmail.com" style="color:inherit">jandersonvs79@gmail.com</a>
+      Dúvidas ou suporte: <a href="mailto:jandersonvs79@gmail.com">jandersonvs79@gmail.com</a>
     </footer>
   </div>
+
+  <script src="assets/theme.js" defer></script>
 </body>
 </html>

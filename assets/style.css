@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@300..800&display=swap');
+
+:root{
+  --bg:#0f1115;
+  --card:#171a21;
+  --text:#e8e9ec;
+  --muted:#9aa1ab;
+  --accent:#ea4335;
+  --border:#262a33;
+  --glow-opacity:.16;
+}
+
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f7f7f8; --card:#ffffff; --text:#1c1e21; --muted:#5a616b;
+    --border:#e4e6ea; --glow-opacity:.09;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f7f7f8; --card:#ffffff; --text:#1c1e21; --muted:#5a616b;
+  --border:#e4e6ea; --glow-opacity:.09;
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --card:#171a21; --text:#e8e9ec; --muted:#9aa1ab;
+  --border:#262a33; --glow-opacity:.16;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height:1.6;
+  opacity:0; animation:fadeIn .4s ease forwards;
+  transition:background-color .25s ease, color .25s ease;
+}
+@keyframes fadeIn{ to{ opacity:1 } }
+body.fade-out{ animation:fadeOut .18s ease forwards }
+@keyframes fadeOut{ to{ opacity:0 } }
+
+/* ---- Hero layout (home) ---- */
+body.hero{
+  display:flex; align-items:center; justify-content:center;
+  padding:40px 20px; position:relative; overflow-x:hidden;
+}
+body.hero::before{
+  content:""; position:fixed; top:-140px; left:50%; transform:translateX(-50%);
+  width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity:var(--glow-opacity); filter:blur(50px); z-index:-1; pointer-events:none;
+}
+.wrap{max-width:560px; width:100%; text-align:center}
+.eyebrow{
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); font-weight:700; margin-bottom:14px;
+}
+h1{font-size:31px; margin:0 0 12px; letter-spacing:-.01em; font-weight:700}
+p.lead{color:var(--muted); font-size:16px; margin:0 auto 36px; max-width:460px}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:18px;
+  padding:26px 28px; margin:0 0 36px; text-align:left;
+  transition:background-color .25s ease, border-color .25s ease;
+}
+.card h2{
+  font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); font-weight:700; margin:0 0 16px;
+}
+.card ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:11px; color:var(--text); font-size:15px}
+
+.links{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+.btn{
+  display:inline-block; padding:12px 22px; border-radius:999px; text-decoration:none;
+  border:1px solid var(--border); color:var(--text); font-size:14px; font-weight:600;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.btn:hover{ transform:translateY(-3px); box-shadow:0 8px 20px -8px rgba(0,0,0,.35) }
+.btn:active{ transform:translateY(-1px) scale(.98) }
+.btn.primary{ background:var(--accent); border-color:var(--accent); color:#fff }
+.btn.primary:hover{ box-shadow:0 10px 24px -8px rgba(234,67,53,.5) }
+
+footer{margin-top:44px; color:var(--muted); font-size:13px}
+footer a{color:inherit}
+
+/* ---- Doc layout (privacy / terms) ---- */
+.doc-wrap{max-width:720px; margin:0 auto; padding:64px 24px 96px}
+.doc-wrap a{ color:var(--accent) }
+a.back{
+  color:var(--muted); text-decoration:none; font-size:14px;
+  display:inline-flex; align-items:center; gap:4px;
+  transition:color .2s ease, transform .2s ease;
+}
+a.back:hover{ color:var(--accent); transform:translateX(-3px) }
+.doc-wrap h1{font-size:27px; margin:24px 0 4px}
+.doc-wrap .updated{color:var(--muted); font-size:13px; margin-bottom:32px}
+.doc-wrap h2{font-size:18px; margin:32px 0 8px}
+.doc-wrap p, .doc-wrap li{color:var(--text)}
+.doc-wrap .note{
+  background:var(--card); border:1px solid var(--border); border-radius:14px;
+  padding:16px 20px; margin-top:40px; color:var(--muted); font-size:14px;
+}
+
+/* ---- Theme toggle ---- */
+.theme-toggle{
+  position:fixed; top:calc(20px + env(safe-area-inset-top, 0px)); right:20px;
+  width:42px; height:42px; border-radius:50%;
+  background:var(--card); border:1px solid var(--border); color:var(--text);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1), background-color .2s ease, border-color .2s ease, color .2s ease;
+  z-index:50;
+}
+.theme-toggle:hover{ transform:rotate(-14deg) scale(1.08) }
+.theme-toggle:active{ transform:scale(.92) }
